@@ -1,7 +1,11 @@
 package service;
 
 import model.Customer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import util.DatabaseHelper;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -13,20 +17,24 @@ import java.util.List;
 public class CustomerService {
 
 
+
     /**
      * get customer
      */
-    public Customer getCustomer(long id){
-        return null;
+    public Customer getCustomer(long id) {
+        String sql = "select * from customer where id = ?";
+        return DatabaseHelper.queryEntity(Customer.class, sql, id);
     }
-
 
 
     /**
      * get customer list
      */
-    public List<Customer> getCustomers(){
-        return null;
+    public List<Customer> getCustomers() {
+
+        String sql = "select * from customer";
+        List<Customer> results = DatabaseHelper.queryEntityList(Customer.class,sql);
+        return results;
     }
 
 
@@ -34,16 +42,16 @@ public class CustomerService {
      * delete customer
      */
 
-    public boolean deleteCustomer(){
+    public boolean deleteCustomer(long id) {
 
-        return false;
+        return DatabaseHelper.deleteEntity(Customer.class, id);
 
     }
 
     /**
      * update customer
      */
-    public boolean updateCustomer(){
+    public boolean updateCustomer(long id, HashMap<String, Object> updateField) {
         return false;
     }
 
@@ -51,7 +59,7 @@ public class CustomerService {
     /**
      * add customer
      */
-    public boolean addCustomer(){
+    public boolean addCustomer(HashMap<String, Object> addField) {
         return false;
     }
 
