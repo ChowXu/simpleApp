@@ -1,7 +1,7 @@
 package util;
 
-import org.apache.log4j.spi.LoggerFactory;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -19,7 +19,7 @@ import java.util.Properties;
  */
 public class PropUtil {
 
-    private static final Logger logger = org.slf4j.LoggerFactory.getLogger(PropUtil.class);
+    private static final Logger logger = LoggerFactory.getLogger(PropUtil.class);
 
     public static Properties loadProps(String filename) {
         Properties props = null;
